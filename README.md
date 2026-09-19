@@ -53,8 +53,8 @@ The output filename is automatically based on the YouTube video title.
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-cd YOUR_REPOSITORY
+git clone https://github.com/Bo-Br/audio_download_script.git
+cd audio_download_script
 ```
 
 Or download the repository as a ZIP file and extract it.
