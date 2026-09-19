@@ -130,7 +130,3 @@ MP3/
 The downloader uses `yt-dlp` and FFmpeg. Make sure you comply with YouTube's Terms of Service and applicable copyright laws when downloading content.
 
 Only download content that you have permission or legal rights to download.
-
-## 📄 License
-
-Choose a license appropriate for your project. If you don't need to restrict usage, the **MIT License** is a simple option.
