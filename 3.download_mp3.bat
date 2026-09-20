@@ -15,7 +15,7 @@ echo   YouTube -> MP3 320 kbps
 echo ========================================
 echo.
 
-for /f "usebackq delims=" %%L in ("links.txt") do (
+for /f "usebackq delims=" %%L in ("2.links.txt") do (
     if not "%%L"=="" (
         echo.
         echo [*] Скачиваю: %%L
