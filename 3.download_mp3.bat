@@ -2,7 +2,7 @@
 chcp 65001 >nul
 setlocal
 
-if not exist "links.txt" (
+if not exist "2.links.txt" (
     echo Ошибка: файл links.txt не найден.
     pause
     exit /b 1
