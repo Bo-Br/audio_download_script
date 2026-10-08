@@ -4,7 +4,7 @@ chcp 65001 >nul
 setlocal EnableDelayedExpansion
 
 if not exist "2.links.txt" (
-    echo Ошибка: файл 2.links.txt не найден.
+    echo error :file 2.links.txt not found
     pause
     exit /b 1
 )
@@ -21,14 +21,14 @@ for /f "usebackq delims=" %%L in ("2.links.txt") do (
         set "URL=%%L"
 
         echo.
-        echo [*] Обрабатываю:
+        echo [*] Uploading:
         echo     !URL!
         echo.
 
-        rem Если это ПРЯМАЯ ссылка на плейлист — скачиваем весь плейлист
+        rem if it's a link to a playlist we download the full playlist
         echo !URL! | findstr /i "youtube.com/playlist?list=" >nul
         if not errorlevel 1 (
-            echo [*] Обнаружен плейлист. Скачиваю весь плейлист...
+            echo [*] Playlist detected, downloading...
 
             yt-dlp ^
                 -x ^
@@ -37,8 +37,8 @@ for /f "usebackq delims=" %%L in ("2.links.txt") do (
                 -o "MP3\%%(title)s.%%(ext)s" ^
                 "!URL!"
         ) else (
-            rem Если это ссылка на видео — скачиваем только это видео
-            echo [*] Обнаружено видео. Скачиваю только этот трек...
+            rem If it's a link to a video, we download only this track
+            echo [*] Video detected, downloading...
 
             yt-dlp ^
                 --no-playlist ^
@@ -50,17 +50,17 @@ for /f "usebackq delims=" %%L in ("2.links.txt") do (
         )
 
         if errorlevel 1 (
-            echo [!] ОШИБКА при скачивании.
+            echo [!] ERROR downloading
         ) else (
-            echo [+] Готово.
+            echo [+] Done
         )
     )
 )
 
 echo.
 echo ========================================
-echo Все ссылки обработаны.
-echo MP3 находятся в папке MP3
+echo All links chcked
+echo Mp3's are into the MP3 directory
 echo ========================================
 pause
 ```
